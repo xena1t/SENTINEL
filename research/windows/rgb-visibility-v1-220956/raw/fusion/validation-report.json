@@ -1,0 +1,1072 @@
+{
+  "selected_epoch": 4,
+  "best_sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+  "config": {
+    "mode": "full",
+    "seed": 4422,
+    "epochs": 60,
+    "dropout": 0.5,
+    "lr": 0.0001,
+    "batch_size": 32,
+    "draws_per_epoch": 16722,
+    "sampler": {
+      "composite_share": 0.5,
+      "type_ratio": "A:B:C=2:1:1",
+      "expected_positive_rate": 0.5458579881656807
+    },
+    "features_index_sha256": "4ff818975ed1cb73e08ec0d418ea1b6d81394213a4ae0cac8c21f3176479734f",
+    "feature_provenance": {
+      "complete": true,
+      "label_version": "rgb-visibility-v1",
+      "split_sha256": "d492540feaec421c14cdcdd859dd90391326abd85f908fb2b2ebb8269e4761c6",
+      "models": {
+        "qwen_path": "/projects/llmprojects/ie4422/cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/snapshots/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+        "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+        "clap_path": "/projects/llmprojects/ie4422/cache/huggingface/hub/models--microsoft--msclap/snapshots/c47d441165daa21986ead0850660917636a81775/CLAP_weights_2023.pth",
+        "clap_revision": "c47d441165daa21986ead0850660917636a81775"
+      },
+      "window_manifest_sha256": "385863a7ad30b71c2691c644a6521b8d94ea37568dd50e87a0e8373bcab73494",
+      "sources_sha256": "871036aa5ebec635a12861cb7a4395b9fead23db4f680bdd0f2308614d137dac",
+      "implementation_sha256": "327f1c5266af9511fef3940404363343c19581f706f8c20e76d1d537e5c968b3",
+      "rf_checkpoint_sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+      "rf_checkpoint_epoch": 25,
+      "recipe": {
+        "rgb": "Qwen3-VL-8B native visual features, 448x448 pixel budget, adaptive-average-pooled to 16 tokens per frame (as extract_fusion_features.py)",
+        "rf": "trained 128-wide RFEncoder per RF frame, RGB decode bilinear224 /255 (as prepare_rf.py)",
+        "audio": "exact one-second 44,100-sample PCM crop, then right zero padding to 7 s, CLAP 2023 HTSAT audio encoder; no neighbouring audio"
+      }
+    },
+    "code_sha256": {
+      "scripts/train/train_window_fusion.py": "7376575602114349a8bcd5ad9469d49a6bf67b5df41d6f7c184a1632e1e18413",
+      "src/drone_presence/composite_windows.py": "6bd29e9a918d0f7a759c8531eafdff4152bd19e1db2e187f0d4b38c4bef6e481",
+      "src/drone_presence/fusion_baseline.py": "311e3528b7dd32e6e0f6b453d4b49b8bda7ed6f21920cbe4030f2413ea32bbe8",
+      "src/drone_presence/model.py": "b586f8fe8fd90330c04b98fa46ff36445aab8a8e9190dc5c46a3a998a9e7f57f"
+    },
+    "counts": {
+      "train": 8361,
+      "validation_real": 1961,
+      "validation_composite": 810
+    },
+    "selection": "full-sensor real-validation macro-F1; fixed threshold 0.5; composites and test never used for selection",
+    "dropout_recipe": "after assembling each sample: all sensors with probability 1-dropout, else one of six incomplete masks uniformly"
+  },
+  "real_validation": {
+    "unimodal": {
+      "rgb": {
+        "macro_f1": 0.6453684594538254,
+        "accuracy": 0.6460989291177971,
+        "recall": 0.548928238583411,
+        "false_positive_rate": 0.23648648648648649,
+        "auroc": 0.6906469610337271,
+        "tp": 589,
+        "tn": 678,
+        "fp": 210,
+        "fn": 484
+      },
+      "rf": {
+        "macro_f1": 0.846505447297285,
+        "accuracy": 0.8465068842427333,
+        "recall": 0.7707362534948742,
+        "false_positive_rate": 0.061936936936936936,
+        "auroc": 0.9384933628875848,
+        "tp": 827,
+        "tn": 833,
+        "fp": 55,
+        "fn": 246
+      },
+      "audio": {
+        "macro_f1": 0.9213409806005293,
+        "accuracy": 0.9214686384497706,
+        "recall": 0.8788443616029823,
+        "false_positive_rate": 0.02702702702702703,
+        "auroc": 0.9591341108116505,
+        "tp": 943,
+        "tn": 864,
+        "fp": 24,
+        "fn": 130
+      }
+    },
+    "100": {
+      "fusion": {
+        "macro_f1": 0.6570457639543408,
+        "accuracy": 0.6593574706782254,
+        "recall": 0.527493010251631,
+        "false_positive_rate": 0.18130630630630631,
+        "auroc": 0.5581455756781946,
+        "tp": 566,
+        "tn": 727,
+        "fp": 161,
+        "fn": 507
+      },
+      "late_fusion": {
+        "macro_f1": 0.6453684594538254,
+        "accuracy": 0.6460989291177971,
+        "recall": 0.548928238583411,
+        "false_positive_rate": 0.23648648648648649,
+        "auroc": 0.6906469610337271,
+        "tp": 589,
+        "tn": 678,
+        "fp": 210,
+        "fn": 484
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.4864864864864865,
+          "predicted_positive": 108
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.8186936936936937,
+          "predicted_positive": 161
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.08888888888888889,
+          "predicted_positive": 36
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9461883408071748,
+          "predicted_positive": 422
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.5540540540540541,
+          "predicted_positive": 123
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.7635135135135135,
+          "predicted_positive": 210
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.08888888888888889,
+          "predicted_positive": 36
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9641255605381166,
+          "predicted_positive": 430
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.5451172870984192,
+          0.7695308516063233
+        ]
+      }
+    },
+    "010": {
+      "fusion": {
+        "macro_f1": 0.8577232823042878,
+        "accuracy": 0.8577256501784803,
+        "recall": 0.7875116495806151,
+        "false_positive_rate": 0.057432432432432436,
+        "auroc": 0.9258971226585392,
+        "tp": 845,
+        "tn": 837,
+        "fp": 51,
+        "fn": 228
+      },
+      "late_fusion": {
+        "macro_f1": 0.846505447297285,
+        "accuracy": 0.8465068842427333,
+        "recall": 0.7707362534948742,
+        "false_positive_rate": 0.061936936936936936,
+        "auroc": 0.9384933628875848,
+        "tp": 827,
+        "tn": 833,
+        "fp": 55,
+        "fn": 246
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.8918918918918919,
+          "predicted_positive": 198
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.9425675675675675,
+          "predicted_positive": 51
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.8271604938271605,
+          "predicted_positive": 335
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.6995515695067265,
+          "predicted_positive": 312
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.8063063063063063,
+          "predicted_positive": 179
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.9380630630630631,
+          "predicted_positive": 55
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.817283950617284,
+          "predicted_positive": 331
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.7107623318385651,
+          "predicted_positive": 317
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.7791815400305967,
+          0.9301504334523202
+        ]
+      }
+    },
+    "001": {
+      "fusion": {
+        "macro_f1": 0.8852281195984252,
+        "accuracy": 0.8852626211116777,
+        "recall": 0.7931034482758621,
+        "false_positive_rate": 0.0033783783783783786,
+        "auroc": 0.920524147166738,
+        "tp": 851,
+        "tn": 885,
+        "fp": 3,
+        "fn": 222
+      },
+      "late_fusion": {
+        "macro_f1": 0.9213409806005293,
+        "accuracy": 0.9214686384497706,
+        "recall": 0.8788443616029823,
+        "false_positive_rate": 0.02702702702702703,
+        "auroc": 0.9591341108116505,
+        "tp": 943,
+        "tn": 864,
+        "fp": 24,
+        "fn": 130
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.7612612612612613,
+          "predicted_positive": 169
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.9966216216216216,
+          "predicted_positive": 3
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.671604938271605,
+          "predicted_positive": 272
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9192825112107623,
+          "predicted_positive": 410
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.918918918918919,
+          "predicted_positive": 204
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.972972972972973,
+          "predicted_positive": 24
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.7530864197530864,
+          "predicted_positive": 305
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9730941704035875,
+          "predicted_positive": 434
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.817440081591025,
+          0.9403493115757267
+        ]
+      }
+    },
+    "110": {
+      "fusion": {
+        "macro_f1": 0.8533695032558559,
+        "accuracy": 0.8577256501784803,
+        "recall": 0.9412861136999068,
+        "false_positive_rate": 0.24324324324324326,
+        "auroc": 0.91677319211103,
+        "tp": 1010,
+        "tn": 672,
+        "fp": 216,
+        "fn": 63
+      },
+      "late_fusion": {
+        "macro_f1": 0.8354751185659378,
+        "accuracy": 0.8378378378378378,
+        "recall": 0.875116495806151,
+        "false_positive_rate": 0.2072072072072072,
+        "auroc": 0.8993770098150341,
+        "tp": 939,
+        "tn": 704,
+        "fp": 184,
+        "fn": 134
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.963963963963964,
+          "predicted_positive": 214
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.7567567567567568,
+          "predicted_positive": 216
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.8790123456790123,
+          "predicted_positive": 356
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9865470852017937,
+          "predicted_positive": 440
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.8648648648648649,
+          "predicted_positive": 192
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.7927927927927928,
+          "predicted_positive": 184
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.7580246913580246,
+          "predicted_positive": 307
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9865470852017937,
+          "predicted_positive": 440
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.7837327893931667,
+          0.9174018357980621
+        ]
+      }
+    },
+    "101": {
+      "fusion": {
+        "macro_f1": 0.8253415524806451,
+        "accuracy": 0.8261091279959204,
+        "recall": 0.8154706430568499,
+        "false_positive_rate": 0.16103603603603603,
+        "auroc": 0.8531360461113491,
+        "tp": 875,
+        "tn": 745,
+        "fp": 143,
+        "fn": 198
+      },
+      "late_fusion": {
+        "macro_f1": 0.8275499085031557,
+        "accuracy": 0.8291687914329424,
+        "recall": 0.8462255358807083,
+        "false_positive_rate": 0.19144144144144143,
+        "auroc": 0.9124056488921353,
+        "tp": 908,
+        "tn": 718,
+        "fp": 170,
+        "fn": 165
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.8513513513513513,
+          "predicted_positive": 189
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.838963963963964,
+          "predicted_positive": 143
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.6148148148148148,
+          "predicted_positive": 249
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9798206278026906,
+          "predicted_positive": 437
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.9099099099099099,
+          "predicted_positive": 202
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.8085585585585585,
+          "predicted_positive": 170
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.6469135802469136,
+          "predicted_positive": 262
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9955156950672646,
+          "predicted_positive": 444
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.7368561958184601,
+          0.9072412034676185
+        ]
+      }
+    },
+    "011": {
+      "fusion": {
+        "macro_f1": 0.9697679006539022,
+        "accuracy": 0.969913309535951,
+        "recall": 0.9496738117427772,
+        "false_positive_rate": 0.00563063063063063,
+        "auroc": 0.9884931529852314,
+        "tp": 1019,
+        "tn": 883,
+        "fp": 5,
+        "fn": 54
+      },
+      "late_fusion": {
+        "macro_f1": 0.9793942909261326,
+        "accuracy": 0.9796022437531872,
+        "recall": 0.9869524697110904,
+        "false_positive_rate": 0.02927927927927928,
+        "auroc": 0.9974937659001033,
+        "tp": 1059,
+        "tn": 862,
+        "fp": 26,
+        "fn": 14
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.963963963963964,
+          "predicted_positive": 214
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.9943693693693694,
+          "predicted_positive": 5
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.9259259259259259,
+          "predicted_positive": 375
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9641255605381166,
+          "predicted_positive": 430
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.990990990990991,
+          "predicted_positive": 220
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.9707207207207207,
+          "predicted_positive": 26
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 1.0,
+          "predicted_positive": 405
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9730941704035875,
+          "predicted_positive": 434
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.9464303926568077,
+          0.9892911779704232
+        ]
+      }
+    },
+    "111": {
+      "fusion": {
+        "macro_f1": 0.8981631229876701,
+        "accuracy": 0.9000509943906171,
+        "recall": 0.9468779123951537,
+        "false_positive_rate": 0.15653153153153154,
+        "auroc": 0.9519281630185638,
+        "tp": 1016,
+        "tn": 749,
+        "fp": 139,
+        "fn": 57
+      },
+      "late_fusion": {
+        "macro_f1": 0.9085827814292029,
+        "accuracy": 0.9092299847016828,
+        "recall": 0.907735321528425,
+        "false_positive_rate": 0.08896396396396396,
+        "auroc": 0.9779203714432045,
+        "tp": 974,
+        "tn": 809,
+        "fp": 79,
+        "fn": 99
+      },
+      "fusion_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.9774774774774775,
+          "predicted_positive": 217
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.8434684684684685,
+          "predicted_positive": 139
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.8765432098765432,
+          "predicted_positive": 355
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 0.9955156950672646,
+          "predicted_positive": 444
+        }
+      },
+      "late_slices": {
+        "ambiguous_positive": {
+          "count": 222,
+          "accuracy": 0.963963963963964,
+          "predicted_positive": 214
+        },
+        "background": {
+          "count": 888,
+          "accuracy": 0.911036036036036,
+          "predicted_positive": 79
+        },
+        "not_visible_positive": {
+          "count": 405,
+          "accuracy": 0.7753086419753087,
+          "predicted_positive": 314
+        },
+        "visible_positive": {
+          "count": 446,
+          "accuracy": 1.0,
+          "predicted_positive": 446
+        }
+      },
+      "fusion_recording_bootstrap": {
+        "recordings": 53,
+        "replicates": 1000,
+        "seed": 4422,
+        "accuracy_95": [
+          0.8327383987761346,
+          0.9571774604793473
+        ]
+      }
+    }
+  },
+  "composite_diagnostic": {
+    "unimodal": {
+      "rgb": {
+        "macro_f1": 0.7562899577369715,
+        "accuracy": 0.7617283950617284,
+        "recall": 0.6123456790123457,
+        "false_positive_rate": 0.08888888888888889,
+        "auroc": 0.7653955189757659,
+        "tp": 248,
+        "tn": 369,
+        "fp": 36,
+        "fn": 157
+      },
+      "rf": {
+        "macro_f1": 0.639594209776934,
+        "accuracy": 0.6666666666666666,
+        "recall": 0.3925925925925926,
+        "false_positive_rate": 0.05925925925925926,
+        "auroc": 0.7337265660722452,
+        "tp": 159,
+        "tn": 381,
+        "fp": 24,
+        "fn": 246
+      },
+      "audio": {
+        "macro_f1": 0.6998517786561265,
+        "accuracy": 0.7185185185185186,
+        "recall": 0.4691358024691358,
+        "false_positive_rate": 0.03209876543209877,
+        "auroc": 0.7354092363968907,
+        "tp": 190,
+        "tn": 392,
+        "fp": 13,
+        "fn": 215
+      }
+    },
+    "100": {
+      "fusion": {
+        "macro_f1": 0.7302120974076983,
+        "accuracy": 0.7382716049382716,
+        "recall": 0.5654320987654321,
+        "false_positive_rate": 0.08888888888888889,
+        "auroc": 0.8679896357262613,
+        "tp": 229,
+        "tn": 369,
+        "fp": 36,
+        "fn": 176
+      },
+      "late_fusion": {
+        "macro_f1": 0.7562899577369715,
+        "accuracy": 0.7617283950617284,
+        "recall": 0.6123456790123457,
+        "false_positive_rate": 0.08888888888888889,
+        "auroc": 0.7653955189757659,
+        "tp": 248,
+        "tn": 369,
+        "fp": 36,
+        "fn": 157
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9111111111111111,
+          "predicted_positive": 36
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.18811881188118812,
+          "predicted_positive": 38
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.9408866995073891,
+          "predicted_positive": 191
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9111111111111111,
+          "predicted_positive": 36
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.2524752475247525,
+          "predicted_positive": 51
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.9704433497536946,
+          "predicted_positive": 197
+        }
+      }
+    },
+    "010": {
+      "fusion": {
+        "macro_f1": 0.6358555410459128,
+        "accuracy": 0.662962962962963,
+        "recall": 0.39012345679012345,
+        "false_positive_rate": 0.06419753086419754,
+        "auroc": 0.7171071483005639,
+        "tp": 158,
+        "tn": 379,
+        "fp": 26,
+        "fn": 247
+      },
+      "late_fusion": {
+        "macro_f1": 0.639594209776934,
+        "accuracy": 0.6666666666666666,
+        "recall": 0.3925925925925926,
+        "false_positive_rate": 0.05925925925925926,
+        "auroc": 0.7337265660722452,
+        "tp": 159,
+        "tn": 381,
+        "fp": 24,
+        "fn": 246
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9358024691358025,
+          "predicted_positive": 26
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.7326732673267327,
+          "predicted_positive": 148
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.04926108374384237,
+          "predicted_positive": 10
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9407407407407408,
+          "predicted_positive": 24
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.7326732673267327,
+          "predicted_positive": 148
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.054187192118226604,
+          "predicted_positive": 11
+        }
+      }
+    },
+    "001": {
+      "fusion": {
+        "macro_f1": 0.6794181034482758,
+        "accuracy": 0.7061728395061728,
+        "recall": 0.41728395061728396,
+        "false_positive_rate": 0.0049382716049382715,
+        "auroc": 0.7394726413656455,
+        "tp": 169,
+        "tn": 403,
+        "fp": 2,
+        "fn": 236
+      },
+      "late_fusion": {
+        "macro_f1": 0.6998517786561265,
+        "accuracy": 0.7185185185185186,
+        "recall": 0.4691358024691358,
+        "false_positive_rate": 0.03209876543209877,
+        "auroc": 0.7354092363968907,
+        "tp": 190,
+        "tn": 392,
+        "fp": 13,
+        "fn": 215
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9950617283950617,
+          "predicted_positive": 2
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.8267326732673267,
+          "predicted_positive": 167
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.009852216748768473,
+          "predicted_positive": 2
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9679012345679012,
+          "predicted_positive": 13
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.900990099009901,
+          "predicted_positive": 182
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.03940886699507389,
+          "predicted_positive": 8
+        }
+      }
+    },
+    "110": {
+      "fusion": {
+        "macro_f1": 0.88760481297203,
+        "accuracy": 0.8876543209876543,
+        "recall": 0.8666666666666667,
+        "false_positive_rate": 0.09135802469135802,
+        "auroc": 0.9520073159579333,
+        "tp": 351,
+        "tn": 368,
+        "fp": 37,
+        "fn": 54
+      },
+      "late_fusion": {
+        "macro_f1": 0.8490846115784265,
+        "accuracy": 0.8493827160493828,
+        "recall": 0.8049382716049382,
+        "false_positive_rate": 0.10617283950617284,
+        "auroc": 0.9131900624904741,
+        "tp": 326,
+        "tn": 362,
+        "fp": 43,
+        "fn": 79
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.908641975308642,
+          "predicted_positive": 37
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.8168316831683168,
+          "predicted_positive": 165
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.916256157635468,
+          "predicted_positive": 186
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.8938271604938272,
+          "predicted_positive": 43
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.7178217821782178,
+          "predicted_positive": 145
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.8916256157635468,
+          "predicted_positive": 181
+        }
+      }
+    },
+    "101": {
+      "fusion": {
+        "macro_f1": 0.9047604504676465,
+        "accuracy": 0.9049382716049382,
+        "recall": 0.8617283950617284,
+        "false_positive_rate": 0.05185185185185185,
+        "auroc": 0.9575796372504193,
+        "tp": 349,
+        "tn": 384,
+        "fp": 21,
+        "fn": 56
+      },
+      "late_fusion": {
+        "macro_f1": 0.876415877355727,
+        "accuracy": 0.8765432098765432,
+        "recall": 0.8444444444444444,
+        "false_positive_rate": 0.09135802469135802,
+        "auroc": 0.9472153635116598,
+        "tp": 342,
+        "tn": 368,
+        "fp": 37,
+        "fn": 63
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9481481481481482,
+          "predicted_positive": 21
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.8168316831683168,
+          "predicted_positive": 165
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.9064039408866995,
+          "predicted_positive": 184
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.908641975308642,
+          "predicted_positive": 37
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.8415841584158416,
+          "predicted_positive": 170
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.8472906403940886,
+          "predicted_positive": 172
+        }
+      }
+    },
+    "011": {
+      "fusion": {
+        "macro_f1": 0.7197945290420276,
+        "accuracy": 0.7382716049382716,
+        "recall": 0.48148148148148145,
+        "false_positive_rate": 0.0049382716049382715,
+        "auroc": 0.7625392470659961,
+        "tp": 195,
+        "tn": 403,
+        "fp": 2,
+        "fn": 210
+      },
+      "late_fusion": {
+        "macro_f1": 0.7253066682169642,
+        "accuracy": 0.7407407407407407,
+        "recall": 0.5037037037037037,
+        "false_positive_rate": 0.022222222222222223,
+        "auroc": 0.75013260173754,
+        "tp": 204,
+        "tn": 396,
+        "fp": 9,
+        "fn": 201
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9950617283950617,
+          "predicted_positive": 2
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.9603960396039604,
+          "predicted_positive": 194
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.0049261083743842365,
+          "predicted_positive": 1
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9777777777777777,
+          "predicted_positive": 9
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.9801980198019802,
+          "predicted_positive": 198
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.029556650246305417,
+          "predicted_positive": 6
+        }
+      }
+    },
+    "111": {
+      "fusion": {
+        "macro_f1": 0.93702081468935,
+        "accuracy": 0.937037037037037,
+        "recall": 0.9209876543209876,
+        "false_positive_rate": 0.04691358024691358,
+        "auroc": 0.9834781283340954,
+        "tp": 373,
+        "tn": 386,
+        "fp": 19,
+        "fn": 32
+      },
+      "late_fusion": {
+        "macro_f1": 0.8023153942428035,
+        "accuracy": 0.8074074074074075,
+        "recall": 0.6469135802469136,
+        "false_positive_rate": 0.03209876543209877,
+        "auroc": 0.9649443682365493,
+        "tp": 262,
+        "tn": 392,
+        "fp": 13,
+        "fn": 143
+      },
+      "fusion_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9530864197530864,
+          "predicted_positive": 19
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.9455445544554455,
+          "predicted_positive": 191
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.896551724137931,
+          "predicted_positive": 182
+        }
+      },
+      "late_slices": {
+        "composite_A": {
+          "count": 405,
+          "accuracy": 0.9679012345679012,
+          "predicted_positive": 13
+        },
+        "composite_B": {
+          "count": 202,
+          "accuracy": 0.8613861386138614,
+          "predicted_positive": 174
+        },
+        "composite_C": {
+          "count": 203,
+          "accuracy": 0.43349753694581283,
+          "predicted_positive": 88
+        }
+      }
+    }
+  }
+}

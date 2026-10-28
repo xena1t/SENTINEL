@@ -1,0 +1,8 @@
+{
+  "complete-image-metadata.json": "46517f23a285e25c0d85cdb3936b95c85d369bf8421c941eb6ff7696799038a7",
+  "audio-integrity.json": "e079729d6237cd1ab66407ebc5ac630c7d99b442e95bcab657d217bd8e379e6f",
+  "curated-paired-manifest.json": "91e21b4b56fc59018b3d3e22f8f93d4a3ada4b6df5ac41146c1ed437b3a438a1",
+  "curated-folder-folds.csv": "97ad9feea98b1133c273e46e53b3cb6e7336d7e382db8540ecc5ad31ea249d45",
+  "curated-evaluation-runs.csv": "d492540feaec421c14cdcdd859dd90391326abd85f908fb2b2ebb8269e4761c6",
+  "curation-ledger.json": "8197e3554b61337718880e43d213d8de33ca2f24e4d49acbc5c4707465e3777a"
+}

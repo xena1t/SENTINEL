@@ -1,0 +1,49 @@
+{
+  "mode": "full",
+  "seed": 4422,
+  "epochs": 60,
+  "dropout": 0.5,
+  "lr": 0.0001,
+  "batch_size": 32,
+  "draws_per_epoch": 16722,
+  "sampler": {
+    "composite_share": 0.5,
+    "type_ratio": "A:B:C=2:1:1",
+    "expected_positive_rate": 0.5458579881656807
+  },
+  "features_index_sha256": "4ff818975ed1cb73e08ec0d418ea1b6d81394213a4ae0cac8c21f3176479734f",
+  "feature_provenance": {
+    "complete": true,
+    "label_version": "rgb-visibility-v1",
+    "split_sha256": "d492540feaec421c14cdcdd859dd90391326abd85f908fb2b2ebb8269e4761c6",
+    "models": {
+      "qwen_path": "/projects/llmprojects/ie4422/cache/huggingface/hub/models--Qwen--Qwen3-VL-8B-Instruct/snapshots/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "clap_path": "/projects/llmprojects/ie4422/cache/huggingface/hub/models--microsoft--msclap/snapshots/c47d441165daa21986ead0850660917636a81775/CLAP_weights_2023.pth",
+      "clap_revision": "c47d441165daa21986ead0850660917636a81775"
+    },
+    "window_manifest_sha256": "385863a7ad30b71c2691c644a6521b8d94ea37568dd50e87a0e8373bcab73494",
+    "sources_sha256": "871036aa5ebec635a12861cb7a4395b9fead23db4f680bdd0f2308614d137dac",
+    "implementation_sha256": "327f1c5266af9511fef3940404363343c19581f706f8c20e76d1d537e5c968b3",
+    "rf_checkpoint_sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+    "rf_checkpoint_epoch": 25,
+    "recipe": {
+      "rgb": "Qwen3-VL-8B native visual features, 448x448 pixel budget, adaptive-average-pooled to 16 tokens per frame (as extract_fusion_features.py)",
+      "rf": "trained 128-wide RFEncoder per RF frame, RGB decode bilinear224 /255 (as prepare_rf.py)",
+      "audio": "exact one-second 44,100-sample PCM crop, then right zero padding to 7 s, CLAP 2023 HTSAT audio encoder; no neighbouring audio"
+    }
+  },
+  "code_sha256": {
+    "scripts/train/train_window_fusion.py": "7376575602114349a8bcd5ad9469d49a6bf67b5df41d6f7c184a1632e1e18413",
+    "src/drone_presence/composite_windows.py": "6bd29e9a918d0f7a759c8531eafdff4152bd19e1db2e187f0d4b38c4bef6e481",
+    "src/drone_presence/fusion_baseline.py": "311e3528b7dd32e6e0f6b453d4b49b8bda7ed6f21920cbe4030f2413ea32bbe8",
+    "src/drone_presence/model.py": "b586f8fe8fd90330c04b98fa46ff36445aab8a8e9190dc5c46a3a998a9e7f57f"
+  },
+  "counts": {
+    "train": 8361,
+    "validation_real": 1961,
+    "validation_composite": 810
+  },
+  "selection": "full-sensor real-validation macro-F1; fixed threshold 0.5; composites and test never used for selection",
+  "dropout_recipe": "after assembling each sample: all sensors with probability 1-dropout, else one of six incomplete masks uniformly"
+}

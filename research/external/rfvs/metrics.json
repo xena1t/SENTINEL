@@ -1,0 +1,217 @@
+{
+  "dataset": "rfvs",
+  "windows": 580,
+  "limit": 0,
+  "provenance": {
+    "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "clap_revision": "c47d441165daa21986ead0850660917636a81775",
+    "qwen_load": "4bit",
+    "checkpoints": {
+      "rf-cnn-best": {
+        "sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+        "epoch": 25
+      },
+      "fusion-best": {
+        "sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+        "epoch": 4
+      },
+      "qwen-dropout-connector-best": {
+        "sha256": "c3a6a2ca6e447c17ee370bb3bb1d6c4d6869753d5cc8d9e4e90450125fe60ea0",
+        "epoch": 15
+      }
+    }
+  },
+  "code_sha256": {
+    "scripts/infer/run_pipeline.py": "33fa690fe4148d7a9de84eb604163f841b16d2d1978f2b8a6f0275f10a0924da",
+    "src/drone_presence/pipeline.py": "d78ae6d50850e23ed87920f030993eacb6bf68b075471de96331912ee47f581c",
+    "src/drone_presence/adapters/rfvs.py": "3210231d3cec7d827b918b9b4bc3369e80ede28c933735498ee4d954fc13dfae"
+  },
+  "masks": {
+    "110": {
+      "fusion": {
+        "macro_f1": 0.44337811900191937,
+        "accuracy": 0.7965517241379311,
+        "recall": 0.9914163090128756,
+        "false_positive_rate": 1.0,
+        "auroc": 0.8553572773134555,
+        "tp": 462,
+        "tn": 0,
+        "fp": 114,
+        "fn": 4,
+        "bootstrap": {
+          "recordings": 11,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.5264283143448436,
+              0.985700987365074
+            ],
+            "recall": [
+              0.9746451160667711,
+              1.0
+            ],
+            "false_positive_rate": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "qwen_dropout": {
+        "macro_f1": 0.8064998561978718,
+        "accuracy": 0.85,
+        "recall": 0.8240343347639485,
+        "false_positive_rate": 0.043859649122807015,
+        "auroc": 0.9376176492733982,
+        "tp": 384,
+        "tn": 109,
+        "fp": 5,
+        "fn": 82,
+        "bootstrap": {
+          "recordings": 11,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.6953707212327902,
+              0.954082802845909
+            ],
+            "recall": [
+              0.634789066931367,
+              0.952059191644548
+            ],
+            "false_positive_rate": [
+              0.0,
+              0.12
+            ]
+          }
+        }
+      }
+    },
+    "100": {
+      "fusion": {
+        "macro_f1": 0.762753462280138,
+        "accuracy": 0.8551724137931035,
+        "recall": 0.9206008583690987,
+        "false_positive_rate": 0.41228070175438597,
+        "auroc": 0.9362811535275958,
+        "tp": 429,
+        "tn": 67,
+        "fp": 47,
+        "fn": 37,
+        "bootstrap": {
+          "recordings": 11,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.7458108121143526,
+              0.9416566822520942
+            ],
+            "recall": [
+              0.8588289932268034,
+              0.9735949461134623
+            ],
+            "false_positive_rate": [
+              0.2,
+              0.4857142857142857
+            ]
+          }
+        }
+      },
+      "qwen_dropout": {
+        "macro_f1": 0.7480844618674269,
+        "accuracy": 0.8655172413793103,
+        "recall": 0.9635193133047211,
+        "false_positive_rate": 0.5350877192982456,
+        "auroc": 0.9433777576989685,
+        "tp": 449,
+        "tn": 53,
+        "fp": 61,
+        "fn": 17,
+        "bootstrap": {
+          "recordings": 11,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.7194942910005316,
+              0.9639565585722804
+            ],
+            "recall": [
+              0.9306519018361953,
+              0.9901647380263581
+            ],
+            "false_positive_rate": [
+              0.28,
+              0.6142857142857143
+            ]
+          }
+        }
+      }
+    },
+    "010": {
+      "fusion": {
+        "macro_f1": 0.437984496124031,
+        "accuracy": 0.7793103448275862,
+        "recall": 0.9699570815450643,
+        "false_positive_rate": 1.0,
+        "auroc": 0.4283280626458851,
+        "tp": 452,
+        "tn": 0,
+        "fp": 114,
+        "fn": 14,
+        "bootstrap": {
+          "recordings": 11,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.5077266413466862,
+              0.9666921768707483
+            ],
+            "recall": [
+              0.8903031621700029,
+              1.0
+            ],
+            "false_positive_rate": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "qwen_dropout": {
+        "macro_f1": 0.44015444015444016,
+        "accuracy": 0.7862068965517242,
+        "recall": 0.9785407725321889,
+        "false_positive_rate": 1.0,
+        "auroc": 0.5512762593178224,
+        "tp": 456,
+        "tn": 0,
+        "fp": 114,
+        "fn": 10,
+        "bootstrap": {
+          "recordings": 11,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.5166707063316032,
+              0.968706153999831
+            ],
+            "recall": [
+              0.9216451158357164,
+              1.0
+            ],
+            "false_positive_rate": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

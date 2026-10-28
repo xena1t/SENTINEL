@@ -1,0 +1,53 @@
+{
+  "manifest_version": "trident-window-v2.1",
+  "scope": "run0_train_validation_only",
+  "timing_status": "nominally_aligned_offline_window_classification_not_verified_streaming",
+  "ticks_per_second": 120,
+  "clip_ticks": 1200,
+  "step_ticks": 30,
+  "duration_ticks": [
+    30,
+    120,
+    240,
+    1200
+  ],
+  "interval": "[start_tick,end_tick)",
+  "rgb_timestamp": "(one_based_index-1)/30 seconds; 300 references",
+  "rgb_sampling": "up to 8 distinct eligible indices, endpoints included, exact nearest integer with half ties upward",
+  "rf_support": "assumed [(index-1)/4,index/4) seconds; retain only complete bins wholly contained; acquisition and causal support unverified",
+  "audio_bounds": "original-rate half-open sample range; slice waveform before features; no padding or resampling in manifest",
+  "probe_positions": "first, lower-middle, last valid endpoint, separately at 0.25 and 1 second",
+  "label_provenance": "inherited_clip_label_weak_window_supervision; no instantaneous visibility or onset inference",
+  "encoder_recipe": "unselected_phase01_no_features",
+  "clip_count": 222,
+  "clip_role_counts": {
+    "train": 169,
+    "validation": 53
+  },
+  "window_count": 24642,
+  "window_role_counts": {
+    "train": 18759,
+    "validation": 5883
+  },
+  "window_duration_counts": {
+    "30": 8880,
+    "120": 8214,
+    "240": 7326,
+    "1200": 222
+  },
+  "probe_clip_count": 12,
+  "probe_window_count": 72,
+  "probe_rgb_count": 480,
+  "source_sha256": {
+    "data/audit/trident/curated-paired-manifest.json": "91e21b4b56fc59018b3d3e22f8f93d4a3ada4b6df5ac41146c1ed437b3a438a1",
+    "data/audit/trident/curated-evaluation-runs.csv": "d492540feaec421c14cdcdd859dd90391326abd85f908fb2b2ebb8269e4761c6",
+    "data/audit/trident/audio-integrity.json": "e079729d6237cd1ab66407ebc5ac630c7d99b442e95bcab657d217bd8e379e6f",
+    "data/audit/trident/curated-manifest-checksums.json": "0956f5650b240b51085c0d8fb1fb464697bc5666a63a79026c37fe73cd36c10f"
+  },
+  "artifact_sha256": {
+    "sources.json": "871036aa5ebec635a12861cb7a4395b9fead23db4f680bdd0f2308614d137dac",
+    "manifest.jsonl": "385863a7ad30b71c2691c644a6521b8d94ea37568dd50e87a0e8373bcab73494",
+    "probe.json": "83efe29211c1100f0a98417c445868fad90b53988217803795c29f0d51a82507",
+    "probe-rgb-download-manifest.json": "ca066523ad186da0dca5ac6c5f27bf31f017d510ddd998d59448d34cbbc5b2ed"
+  }
+}

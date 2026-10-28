@@ -1,0 +1,392 @@
+{
+  "dataset": "trident-test",
+  "windows": 1961,
+  "limit": 0,
+  "provenance": {
+    "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "clap_revision": "c47d441165daa21986ead0850660917636a81775",
+    "qwen_load": "4bit",
+    "checkpoints": {
+      "rf-cnn-best": {
+        "sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+        "epoch": 25
+      },
+      "fusion-best": {
+        "sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+        "epoch": 4
+      }
+    }
+  },
+  "code_sha256": {
+    "scripts/infer/run_pipeline.py": "73fc4674185c0413a83e444d5509ab0fe0aa97770a23e1a193ef1fffaaa2e002",
+    "src/drone_presence/pipeline.py": "d78ae6d50850e23ed87920f030993eacb6bf68b075471de96331912ee47f581c",
+    "src/drone_presence/adapters/trident_test.py": "72587739f611db21008b7f47163c33643b4ef0f40513d948f0a5edad051e5333"
+  },
+  "masks": {
+    "100": {
+      "fusion": {
+        "macro_f1": 0.7739770629239886,
+        "accuracy": 0.7786843447220806,
+        "recall": 0.6003861003861004,
+        "false_positive_rate": 0.021621621621621623,
+        "auroc": 0.8394438067411041,
+        "tp": 622,
+        "tn": 905,
+        "fp": 20,
+        "fn": 414,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.6803519568639352,
+              0.8459220849535499
+            ],
+            "accuracy": [
+              0.6848546659867415,
+              0.855736868944416
+            ],
+            "recall": [
+              0.4778767403767404,
+              0.7083556616961789
+            ],
+            "false_positive_rate": [
+              0.0011261261261261261,
+              0.061936936936936936
+            ],
+            "auroc": [
+              0.7481736025096778,
+              0.9196059631059631
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    },
+    "010": {
+      "fusion": {
+        "macro_f1": 0.9565860828032859,
+        "accuracy": 0.9566547679755227,
+        "recall": 0.943050193050193,
+        "false_positive_rate": 0.02810810810810811,
+        "auroc": 0.9752060941250131,
+        "tp": 977,
+        "tn": 899,
+        "fp": 26,
+        "fn": 59,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.9253574528879237,
+              0.9804795365670577
+            ],
+            "accuracy": [
+              0.9275879653238144,
+              0.980634880163182
+            ],
+            "recall": [
+              0.896551724137931,
+              0.9803558690655464
+            ],
+            "false_positive_rate": [
+              0.006756756756756757,
+              0.058389507154213025
+            ],
+            "auroc": [
+              0.9545211957029169,
+              0.9941940634608084
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    },
+    "001": {
+      "fusion": {
+        "macro_f1": 0.9222687647282881,
+        "accuracy": 0.9229984701682815,
+        "recall": 0.9652509652509652,
+        "false_positive_rate": 0.12432432432432433,
+        "auroc": 0.9818438902222685,
+        "tp": 1000,
+        "tn": 810,
+        "fp": 115,
+        "fn": 36,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.8802154254138304,
+              0.9549560502116451
+            ],
+            "accuracy": [
+              0.8837327893931668,
+              0.9566802651708313
+            ],
+            "recall": [
+              0.9172768222768223,
+              0.9980711622953002
+            ],
+            "false_positive_rate": [
+              0.07172444183313749,
+              0.1860966735966736
+            ],
+            "auroc": [
+              0.9586609389386008,
+              0.9975821659763878
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    },
+    "110": {
+      "fusion": {
+        "macro_f1": 0.9554999051868653,
+        "accuracy": 0.9556348801631821,
+        "recall": 0.9565637065637066,
+        "false_positive_rate": 0.04540540540540541,
+        "auroc": 0.9914525722633831,
+        "tp": 991,
+        "tn": 883,
+        "fp": 42,
+        "fn": 45,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.9271791270794187,
+              0.9792362360838395
+            ],
+            "accuracy": [
+              0.9290922998470168,
+              0.9796022437531872
+            ],
+            "recall": [
+              0.9235703634669151,
+              0.9837837837837838
+            ],
+            "false_positive_rate": [
+              0.009000965250965252,
+              0.0919074844074844
+            ],
+            "auroc": [
+              0.9816014809938926,
+              0.9981940695101682
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    },
+    "101": {
+      "fusion": {
+        "macro_f1": 0.9406423720923436,
+        "accuracy": 0.9408465068842428,
+        "recall": 0.9459459459459459,
+        "false_positive_rate": 0.06486486486486487,
+        "auroc": 0.9791109255974121,
+        "tp": 980,
+        "tn": 865,
+        "fp": 60,
+        "fn": 56,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.9015442331451097,
+              0.9708547861480311
+            ],
+            "accuracy": [
+              0.9041177970423254,
+              0.971443141254462
+            ],
+            "recall": [
+              0.8853469456917733,
+              0.993530888030888
+            ],
+            "false_positive_rate": [
+              0.03001930501930502,
+              0.10813409563409562
+            ],
+            "auroc": [
+              0.953454336598626,
+              0.9971726556651999
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    },
+    "011": {
+      "fusion": {
+        "macro_f1": 0.9728139081632039,
+        "accuracy": 0.972972972972973,
+        "recall": 0.9932432432432432,
+        "false_positive_rate": 0.04972972972972973,
+        "auroc": 0.9968527600960034,
+        "tp": 1029,
+        "tn": 879,
+        "fp": 46,
+        "fn": 7,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.9544677927966952,
+              0.9876796802380917
+            ],
+            "accuracy": [
+              0.9551121876593576,
+              0.9877613462519123
+            ],
+            "recall": [
+              0.9836199836199836,
+              1.0
+            ],
+            "false_positive_rate": [
+              0.02027027027027027,
+              0.08378861003861005
+            ],
+            "auroc": [
+              0.9913668481422442,
+              0.9997175118497046
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    },
+    "111": {
+      "fusion": {
+        "macro_f1": 0.9676944619862168,
+        "accuracy": 0.9678735339112697,
+        "recall": 0.9864864864864865,
+        "false_positive_rate": 0.05297297297297297,
+        "auroc": 0.9974026922675572,
+        "tp": 1022,
+        "tn": 876,
+        "fp": 49,
+        "fn": 14,
+        "bootstrap": {
+          "recordings": 53,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "macro_f1": [
+              0.9452301232645092,
+              0.9855521604641447
+            ],
+            "accuracy": [
+              0.9474757776644569,
+              0.985721570627231
+            ],
+            "recall": [
+              0.9642776705276705,
+              1.0
+            ],
+            "false_positive_rate": [
+              0.02049743709226468,
+              0.09287602820211513
+            ],
+            "auroc": [
+              0.9932054906454953,
+              0.9997839142730801
+            ]
+          },
+          "method": "percentile_recording_resample_with_replacement",
+          "valid_replicates": {
+            "macro_f1": 1000,
+            "accuracy": 1000,
+            "recall": 1000,
+            "false_positive_rate": 1000,
+            "auroc": 1000
+          }
+        }
+      }
+    }
+  },
+  "test_seal": {
+    "protocol_sha256": "f50ad62367808393fb4c10b74a70e23e238afec0a7f6a1675f310614fca2f54d",
+    "contract_sha256": "2924e144e02d389b24a3031d97d2c864b8b976decd44bd02fc1c1ab47c730324",
+    "code_sha256": {
+      "scripts/infer/run_pipeline.py": "73fc4674185c0413a83e444d5509ab0fe0aa97770a23e1a193ef1fffaaa2e002",
+      "scripts/infer/evaluate_external.py": "dcfe1f0ddf1c48bf451ab5d779b4e4d658c88d7717bb6acaa0ed6c65d43e27b2",
+      "src/drone_presence/windows.py": "4acf0c7c4d4fa1ea075e48b37d3d9068eddcd2da79402be52ea5b35b6bd2635e",
+      "src/drone_presence/test_windows_v2.py": "5aab586b0cb40523536e1211e4aae088ffbef02e85307a999890130d92826e02",
+      "src/drone_presence/adapters/trident_test.py": "72587739f611db21008b7f47163c33643b4ef0f40513d948f0a5edad051e5333",
+      "src/drone_presence/adapters/trident.py": "2900e881049f978e7b3024c16074155a3680328cfc4e80601b4210426a795669",
+      "src/drone_presence/pipeline.py": "d78ae6d50850e23ed87920f030993eacb6bf68b075471de96331912ee47f581c",
+      "src/drone_presence/composite_windows.py": "6bd29e9a918d0f7a759c8531eafdff4152bd19e1db2e187f0d4b38c4bef6e481",
+      "src/drone_presence/model.py": "b586f8fe8fd90330c04b98fa46ff36445aab8a8e9190dc5c46a3a998a9e7f57f",
+      "src/drone_presence/qwen_alignment.py": "76dc0a273e35c6f39f7a85d08ac488e0fd267929567a983fe1b9e69121a0077b",
+      "src/drone_presence/fusion_baseline.py": "311e3528b7dd32e6e0f6b453d4b49b8bda7ed6f21920cbe4030f2413ea32bbe8",
+      "scripts/train/train_fusion.py": "345ba98556180039b1153e5ac44ff01bc2a3841a50f002d937b873f53c33a42b"
+    },
+    "media": {
+      "status": "PASS",
+      "files": {
+        "rgb": 15900,
+        "rf": 2120,
+        "audio": 53
+      },
+      "payload_sha256": "aba1352de9ec8af866bfb410171e5bf54671b75acc9ca93836a0ae036682b949"
+    }
+  },
+  "threshold": 0.5,
+  "phase": "learned_fusion"
+}

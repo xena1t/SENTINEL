@@ -1,0 +1,41 @@
+{
+  "mode": "full",
+  "seed": 4422,
+  "lr": 3e-05,
+  "epochs": 20,
+  "draws_per_epoch": 2000,
+  "accumulation": 8,
+  "provenance": {
+    "features_index_sha256": "4ff818975ed1cb73e08ec0d418ea1b6d81394213a4ae0cac8c21f3176479734f",
+    "fusion_checkpoint_sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+    "models_sha256": "db49788ec1ae3f4709fefc9870792cbbdce5b51af595f9dbd5e3ba6300ca80ed",
+    "composite_summary_sha256": "dffa60b8a8a9b95b02b1deb5c3882cd811b155bf375ff5c6a65b4cac95a27b25"
+  },
+  "counts": {
+    "train": 8361,
+    "validation_real": 1961,
+    "validation_composite": 810
+  },
+  "sampler": {
+    "composite_share": 0.5,
+    "type_ratio": "A:B:C=2:1:1"
+  },
+  "fusion_initialization_epoch": 4,
+  "connector_init_sum": 587.0505018034735,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "objective": "lexical answer token NLL; no EOS or prompt loss",
+  "scoring": "softmax of no/yes answer log probabilities from one shared prompt forward; fixed 0.5 threshold; not calibrated",
+  "frozen": "Qwen, camera/RF/audio encoders, fusion projections/queries/blocks",
+  "dropout": 0.0,
+  "warmup_fraction": 0.1,
+  "scheduler": "warmup_cosine_to_10pct",
+  "trainable_parameters": 2364928,
+  "selection": "full-sensor real-validation macro-F1 then conditional NLL; composites and test never used",
+  "patience": 8,
+  "code_sha256": {
+    "scripts/train/train_window_alignment.py": "55ff51f8b355c0b5075e0d66bb5310becdb9738ed1f1040d0676be23ca9454df",
+    "src/drone_presence/composite_windows.py": "6bd29e9a918d0f7a759c8531eafdff4152bd19e1db2e187f0d4b38c4bef6e481",
+    "src/drone_presence/qwen_alignment.py": "76dc0a273e35c6f39f7a85d08ac488e0fd267929567a983fe1b9e69121a0077b",
+    "src/drone_presence/model.py": "b586f8fe8fd90330c04b98fa46ff36445aab8a8e9190dc5c46a3a998a9e7f57f"
+  }
+}
