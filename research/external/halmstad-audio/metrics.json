@@ -1,0 +1,93 @@
+{
+  "dataset": "halmstad-audio",
+  "windows": 900,
+  "limit": 0,
+  "provenance": {
+    "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "clap_revision": "c47d441165daa21986ead0850660917636a81775",
+    "qwen_load": "4bit",
+    "checkpoints": {
+      "rf-cnn-best": {
+        "sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+        "epoch": 25
+      },
+      "fusion-best": {
+        "sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+        "epoch": 4
+      },
+      "qwen-dropout-connector-best": {
+        "sha256": "c3a6a2ca6e447c17ee370bb3bb1d6c4d6869753d5cc8d9e4e90450125fe60ea0",
+        "epoch": 15
+      }
+    }
+  },
+  "code_sha256": {
+    "scripts/infer/run_pipeline.py": "33fa690fe4148d7a9de84eb604163f841b16d2d1978f2b8a6f0275f10a0924da",
+    "src/drone_presence/pipeline.py": "d78ae6d50850e23ed87920f030993eacb6bf68b075471de96331912ee47f581c",
+    "src/drone_presence/adapters/halmstad.py": "ed8b97d71dd37b8370ac32f59c99e4cf46c3ec4a99b45dc14399560b0f2b31e5"
+  },
+  "masks": {
+    "001": {
+      "fusion": {
+        "macro_f1": 0.33117276829549663,
+        "accuracy": 0.3844444444444444,
+        "recall": 1.0,
+        "false_positive_rate": 0.9233333333333333,
+        "auroc": 0.7407388888888888,
+        "tp": 300,
+        "tn": 46,
+        "fp": 554,
+        "fn": 0,
+        "bootstrap": {
+          "recordings": 90,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.2932777777777778,
+              0.4777777777777778
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "false_positive_rate": [
+              0.8724137931034482,
+              0.9661016949152542
+            ]
+          }
+        }
+      },
+      "qwen_dropout": {
+        "macro_f1": 0.32616529852100473,
+        "accuracy": 0.3811111111111111,
+        "recall": 1.0,
+        "false_positive_rate": 0.9283333333333333,
+        "auroc": 0.29679444444444447,
+        "tp": 300,
+        "tn": 43,
+        "fp": 557,
+        "fn": 0,
+        "bootstrap": {
+          "recordings": 90,
+          "replicates": 1000,
+          "seed": 4422,
+          "ci95": {
+            "accuracy": [
+              0.2877777777777778,
+              0.4744722222222222
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "false_positive_rate": [
+              0.8799915254237288,
+              0.9703907721280602
+            ]
+          }
+        }
+      }
+    }
+  }
+}

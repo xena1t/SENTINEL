@@ -1,0 +1,47 @@
+{
+  "label_version": "rgb-visibility-v1",
+  "seed": 20261022,
+  "window_duration_s": 1.0,
+  "hop_s": 0.25,
+  "inputs_sha256": {
+    "window_manifest": "385863a7ad30b71c2691c644a6521b8d94ea37568dd50e87a0e8373bcab73494",
+    "visibility_labels": "2d00872c32a13a09f214f492be057f808fa206a095d05fe1e3f8e4220415a9c1"
+  },
+  "outputs_sha256": {
+    "window-labels.jsonl": "bd3485ace530ad31fdbe55fcfd912676486e2ce6e6362b9ccda36ce8fe2d4c7a",
+    "composite-manifest.jsonl": "3cc05583413acee11f8fed98c0a8ab99654e7b9eadd72727e0088ce81d2cc3bd"
+  },
+  "real_windows": {
+    "train": {
+      "presence=0|rgb=not_visible": 2553,
+      "presence=1|rgb=ambiguous": 851,
+      "presence=1|rgb=not_visible": 1054,
+      "presence=1|rgb=visible": 1795
+    },
+    "validation": {
+      "presence=0|rgb=not_visible": 888,
+      "presence=1|rgb=ambiguous": 222,
+      "presence=1|rgb=not_visible": 405,
+      "presence=1|rgb=visible": 446
+    }
+  },
+  "composites": {
+    "train": {
+      "A_drone_scene_not_visible__background_rf_audio": 1054,
+      "B_background_scene__drone_rf_audio": 527,
+      "C_drone_visible__background_rf_audio": 527
+    },
+    "validation": {
+      "A_drone_scene_not_visible__background_rf_audio": 405,
+      "B_background_scene__drone_rf_audio": 202,
+      "C_drone_visible__background_rf_audio": 203
+    }
+  },
+  "rules": [
+    "Only run0 train and validation clips; the 53 observed-test clips are never read.",
+    "Pairs combine two different recordings from the same role only.",
+    "RGB windows labelled ambiguous (uncertain frames or within 0.25 s of an entry/exit) are never used as composite RGB.",
+    "Composite negatives (A) are balanced by composite positives (B + C) so mixing sensors does not predict the label.",
+    "Validation composites are diagnostic only; model selection uses real validation windows."
+  ]
+}
