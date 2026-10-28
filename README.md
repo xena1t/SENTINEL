@@ -1,12 +1,12 @@
 # SENTINEL
 
-Detect drone presence from camera frames, passive RF spectrograms and audio. This IE4422 project compares a learned fusion classifier with a frozen Qwen3-VL-8B-Instruct model under missing sensors and on external datasets.
+SENTINEL detects drone presence from camera frames, passive RF spectrograms and audio. It compares a learned fusion classifier with a frozen Qwen3-VL-8B-Instruct model under missing sensors and on external datasets.
 
-Use this repository to run the released Version 2 detector, retrain either experiment version, or recompute the reported metrics from saved predictions.
+Use this repository to run the released detector, train the models, or recompute benchmark metrics from the included predictions. Version 1 operates on whole 10-second clips. Version 2 uses 1-second windows at a 0.25-second hop.
 
 ![SENTINEL architecture. Camera, RF and audio features enter masked attention fusion. A connector passes the fused evidence to frozen Qwen, alongside native camera images.](assets/architecture.png)
 
-*Figure 1 from the group proposal. The diagram shows a 10-second clip with 40 RF tokens and two audio tokens. A Version 2 decision uses a 1-second window with four RF tokens and one audio token. Both versions use eight camera frames and 16 learned fusion queries.*
+The diagram shows the 10-second configuration with 40 RF tokens and two audio tokens. A 1-second window uses four RF tokens and one audio token. Both configurations use eight camera frames and 16 learned fusion queries.
 
 The Qwen vision encoder and CLAP audio encoder stay frozen. Training first fits the RF CNN, then the fusion classifier, then freezes both and fits only the connector into Qwen. Qwen receives native camera images when the camera is available. The final decision uses a fixed threshold of 0.5 on the normalized probability of "yes" against "no".
 
