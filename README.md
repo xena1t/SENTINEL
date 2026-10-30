@@ -12,22 +12,6 @@ The Qwen vision encoder and CLAP audio encoder stay frozen. Training first fits 
 
 Sensor masks use camera, RF and audio order. For example, `101` keeps camera and audio. The model refuses the all-missing mask `000`.
 
-## Run the presentation demo
-
-The [cached demo](demo/README.md) compares **Fusion classifier** with **Qwen detector** on six real examples from TRIDENT, RFVS, and Halmstad.
-It includes the selected media and saved Version 2 predictions. You need Python 3 and a browser, with no GPU or model setup.
-
-From the repository directory, start the demo:
-
-```sh
-python3 demo/serve.py --open
-```
-
-On Windows, use `py demo/serve.py --open`.
-For download instructions, controls, and troubleshooting, use the [demo README](demo/README.md).
-For a rehearsal sequence, use [Present the three dataset pairs](demo/docs/present.md).
-The browser replays saved outputs. It does not run live inference.
-
 ## Set up the environment
 
 Use Python 3.12, Bash and Make. Verification runs on CPU. Training and model inference require Linux with a CUDA-enabled PyTorch installation and an NVIDIA GPU. Qwen training and validation inference use bf16. The released test and external inference recipes use 4-bit language weights with bf16 vision.
@@ -55,7 +39,7 @@ Download the pinned Qwen and CLAP models first. This command creates `models/mod
 make models
 ```
 
-The pretrained models and raw datasets require multi-gigabyte downloads. Downloaded pretrained models, full raw datasets, and generated feature caches are excluded from Git. The demo includes its packaged example media and the source files used by its verifier.
+The pretrained models and raw datasets require multi-gigabyte downloads. Downloaded pretrained models, raw media and generated feature caches are excluded from Git.
 
 ### Evaluate TRIDENT validation
 
