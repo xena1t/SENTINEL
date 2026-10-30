@@ -1,0 +1,31 @@
+{
+  "schema": "trident-test-window-v2",
+  "scope": "run0_observed_test_only",
+  "window_recipe": "trident-window-v2.1",
+  "clips": 53,
+  "windows": 1961,
+  "clip_labels": {
+    "Background": 25,
+    "Drone": 28
+  },
+  "duration_tick": 120,
+  "step_tick": 30,
+  "ticks_per_second": 120,
+  "rgb_frames": 8,
+  "rf_frames": 4,
+  "audio_samples": 44100,
+  "labels": "inherited_clip_presence",
+  "visibility_labels": false,
+  "composites": false,
+  "timing_status": "nominally_aligned_offline_window_classification_not_verified_streaming",
+  "source_sha256": {
+    "data/audit/trident/curated-paired-manifest.json": "91e21b4b56fc59018b3d3e22f8f93d4a3ada4b6df5ac41146c1ed437b3a438a1",
+    "data/audit/trident/curated-evaluation-runs.csv": "d492540feaec421c14cdcdd859dd90391326abd85f908fb2b2ebb8269e4761c6",
+    "data/audit/trident/audio-integrity.json": "e079729d6237cd1ab66407ebc5ac630c7d99b442e95bcab657d217bd8e379e6f",
+    "data/audit/trident/curated-manifest-checksums.json": "0956f5650b240b51085c0d8fb1fb464697bc5666a63a79026c37fe73cd36c10f"
+  },
+  "artifact_sha256": {
+    "sources.json": "969b6e01037877abaf18cc6dd933907afed758ebc07fadf9f26345e7805bc3be",
+    "manifest.jsonl": "85705d26bb2ce5c90aff64b4e336c982e685002a3282deb2684f33f5d0e6e73a"
+  }
+}

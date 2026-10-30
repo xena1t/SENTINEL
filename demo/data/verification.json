@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "releaseCommit": "7fc465480f4f5b1ad348ffef93c744712e06b098",
+  "clips": 6,
+  "windows": 94,
+  "observations": 96,
+  "datasets": [
+    "TRIDENT",
+    "RFVS",
+    "Halmstad"
+  ],
+  "exactPublishedProbabilities": 1088,
+  "publishedBlobsVerified": 8,
+  "externalVerification": {
+    "passed": true,
+    "sourceCommit": "7fc465480f4f5b1ad348ffef93c744712e06b098",
+    "clips": 4,
+    "releasedSamplesOrWindows": 22,
+    "exactCachedProbabilities": 52,
+    "verifiedPublishedFiles": 6,
+    "verifiedRawSources": 8,
+    "verifiedMedia": 14,
+    "noInference": true,
+    "selection": "Purposefully selected illustrations, not a performance estimate."
+  },
+  "assetsVerified": 277,
+  "videos": 4,
+  "snapshots": 2,
+  "tridentCameraFrames": 600,
+  "tridentRfFrames": 80
+}

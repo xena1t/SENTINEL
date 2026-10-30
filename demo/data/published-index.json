@@ -1,0 +1,70 @@
+{
+  "repository": "xena1t/SENTINEL",
+  "commit": "7fc465480f4f5b1ad348ffef93c744712e06b098",
+  "files": [
+    {
+      "path": "data/windows/test-v2/contract.json",
+      "gitBlobSha1": "fd5ca54170bcba9e2e3470510dc077a7a492a586",
+      "bytes": 1251,
+      "local": "published/data__windows__test-v2__contract.json",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/data/windows/test-v2/contract.json",
+      "sha256": "2924e144e02d389b24a3031d97d2c864b8b976decd44bd02fc1c1ab47c730324"
+    },
+    {
+      "path": "data/windows/test-v2/manifest.jsonl",
+      "gitBlobSha1": "3b684d425cd1756d639f05885df10ce2923d0501",
+      "bytes": 3210960,
+      "local": "published/data__windows__test-v2__manifest.jsonl",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/data/windows/test-v2/manifest.jsonl",
+      "sha256": "85705d26bb2ce5c90aff64b4e336c982e685002a3282deb2684f33f5d0e6e73a"
+    },
+    {
+      "path": "data/windows/test-v2/sources.json",
+      "gitBlobSha1": "68841b652c19c0d53e60401483cf32823bdc245a",
+      "bytes": 5853015,
+      "local": "published/data__windows__test-v2__sources.json",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/data/windows/test-v2/sources.json",
+      "sha256": "969b6e01037877abaf18cc6dd933907afed758ebc07fadf9f26345e7805bc3be"
+    },
+    {
+      "path": "research/test-v2/fusion-predictions.json",
+      "gitBlobSha1": "3786177284a67a94f857c49739fd34680c3b1fb4",
+      "bytes": 3294497,
+      "local": "published/research__test-v2__fusion-predictions.json",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/research/test-v2/fusion-predictions.json",
+      "sha256": "11981c3c75b39ae6bc45e7c18ee248be0f87a1decb4677c3d79c1cf5dff95183"
+    },
+    {
+      "path": "research/test-v2/protocol.json",
+      "gitBlobSha1": "04ea92d16fab7919f34a0096889ad513d516d14a",
+      "bytes": 4736,
+      "local": "published/research__test-v2__protocol.json",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/research/test-v2/protocol.json",
+      "sha256": "f50ad62367808393fb4c10b74a70e23e238afec0a7f6a1675f310614fca2f54d"
+    },
+    {
+      "path": "research/test-v2/qwen-predictions.json",
+      "gitBlobSha1": "66751589fd76e417f8ffa28f3510e96829d1ceba",
+      "bytes": 5114892,
+      "local": "published/research__test-v2__qwen-predictions.json",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/research/test-v2/qwen-predictions.json",
+      "sha256": "cc90919cec956f644e88a196683f9d0f1b76455ed5d0fdeb3e4cf1edeee1cff7"
+    },
+    {
+      "path": "src/drone_presence/test_windows_v2.py",
+      "gitBlobSha1": "57ed21a5be92a3b9db84346da32dc6cf394b8748",
+      "bytes": 10839,
+      "local": "published/src__drone_presence__test_windows_v2.py",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/src/drone_presence/test_windows_v2.py",
+      "sha256": "5aab586b0cb40523536e1211e4aae088ffbef02e85307a999890130d92826e02"
+    },
+    {
+      "path": "src/drone_presence/pipeline.py",
+      "gitBlobSha1": "a25d9a1ddbf2637af970db261cd1ff6224b889ea",
+      "bytes": 11456,
+      "local": "published/src__drone_presence__pipeline.py",
+      "sha256": "d78ae6d50850e23ed87920f030993eacb6bf68b075471de96331912ee47f581c",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/src/drone_presence/pipeline.py"
+    }
+  ]
+}

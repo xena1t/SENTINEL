@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "experiment": "Version 2",
+  "sourceCommit": "7fc465480f4f5b1ad348ffef93c744712e06b098",
+  "threshold": 0.5,
+  "selection": "Purposefully selected illustrations, not a performance estimate.",
+  "clips": [
+    {
+      "id": "rfvs-drone",
+      "title": "RFVS drone snapshot",
+      "description": "A released drone RGB still paired with its 30 ms RF capture. Both models detect presence with camera and RF.",
+      "label": 1,
+      "dataset": "RFVS",
+      "mediaKind": "snapshot",
+      "availableMask": "110",
+      "supportedMasks": [
+        "110",
+        "100",
+        "010"
+      ],
+      "duration": 0.03,
+      "windowSeconds": 0.03,
+      "hopSeconds": null,
+      "sourceOffsetSeconds": 0,
+      "video": null,
+      "poster": "assets/external/rfvs-drone/poster.jpg",
+      "audio": null,
+      "waveform": [],
+      "rfFrames": [
+        {
+          "time": 0.0,
+          "start": 0.0,
+          "end": 0.0075,
+          "src": "assets/external/rfvs-drone/rf-01.png"
+        },
+        {
+          "time": 0.0075,
+          "start": 0.0075,
+          "end": 0.015,
+          "src": "assets/external/rfvs-drone/rf-02.png"
+        },
+        {
+          "time": 0.015,
+          "start": 0.015,
+          "end": 0.0225,
+          "src": "assets/external/rfvs-drone/rf-03.png"
+        },
+        {
+          "time": 0.0225,
+          "start": 0.0225,
+          "end": 0.03,
+          "src": "assets/external/rfvs-drone/rf-04.png"
+        }
+      ],
+      "windows": [
+        {
+          "sampleId": "rfvs:AIR2s_58296527",
+          "start": 0,
+          "end": 0.03,
+          "label": 1,
+          "scores": {
+            "110": {
+              "fusion": 0.9996953010559082,
+              "qwen": 0.999998927116394
+            },
+            "100": {
+              "fusion": 0.9989983439445496,
+              "qwen": 0.9999898672103882
+            },
+            "010": {
+              "fusion": 0.1417737901210785,
+              "qwen": 0.851952850818634
+            }
+          },
+          "rfIndices": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "cue": {
+        "time": 0.03,
+        "mask": "110",
+        "caption": "One genuine RFVS sample. The single RGB image fills all eight model frame slots. Four RF panels cover consecutive 7.5 ms intervals."
+      },
+      "source": {
+        "recording": "AIR2s_58296527",
+        "labelBasis": "Released exact-stem YOLO label file, nonempty means drone.",
+        "temporalBasis": "One still image and one 30 ms RF sample. This is not a video window.",
+        "selection": "Purposefully selected illustration; not a performance estimate."
+      }
+    },
+    {
+      "id": "rfvs-background",
+      "title": "RFVS house background",
+      "description": "A released background RGB still and its 30 ms RF capture. Qwen detector rejects the background while Fusion classifier raises a false alarm.",
+      "label": 0,
+      "dataset": "RFVS",
+      "mediaKind": "snapshot",
+      "availableMask": "110",
+      "supportedMasks": [
+        "110",
+        "100",
+        "010"
+      ],
+      "duration": 0.03,
+      "windowSeconds": 0.03,
+      "hopSeconds": null,
+      "sourceOffsetSeconds": 0,
+      "video": null,
+      "poster": "assets/external/rfvs-background/poster.jpg",
+      "audio": null,
+      "waveform": [],
+      "rfFrames": [
+        {
+          "time": 0.0,
+          "start": 0.0,
+          "end": 0.0075,
+          "src": "assets/external/rfvs-background/rf-01.png"
+        },
+        {
+          "time": 0.0075,
+          "start": 0.0075,
+          "end": 0.015,
+          "src": "assets/external/rfvs-background/rf-02.png"
+        },
+        {
+          "time": 0.015,
+          "start": 0.015,
+          "end": 0.0225,
+          "src": "assets/external/rfvs-background/rf-03.png"
+        },
+        {
+          "time": 0.0225,
+          "start": 0.0225,
+          "end": 0.03,
+          "src": "assets/external/rfvs-background/rf-04.png"
+        }
+      ],
+      "windows": [
+        {
+          "sampleId": "rfvs:house_background_124157_73",
+          "start": 0,
+          "end": 0.03,
+          "label": 0,
+          "scores": {
+            "110": {
+              "fusion": 0.8050667643547058,
+              "qwen": 2.1444948288262822e-05
+            },
+            "100": {
+              "fusion": 0.511607825756073,
+              "qwen": 0.622459352016449
+            },
+            "010": {
+              "fusion": 0.9994912147521973,
+              "qwen": 0.998498797416687
+            }
+          },
+          "rfIndices": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "cue": {
+        "time": 0.03,
+        "mask": "110",
+        "caption": "The released label file is empty. With camera and RF, Qwen detector rejects this background and Fusion classifier raises a false alarm."
+      },
+      "source": {
+        "recording": "house_background_124157_73",
+        "labelBasis": "Released exact-stem YOLO label file, nonempty means drone.",
+        "temporalBasis": "One still image and one 30 ms RF sample. This is not a video window.",
+        "selection": "Purposefully selected illustration; not a performance estimate."
+      }
+    },
+    {
+      "id": "halmstad-drone",
+      "title": "Halmstad drone video",
+      "description": "A 10 s excerpt of a released camera recording labelled drone. Both models detect presence throughout these windows.",
+      "label": 1,
+      "dataset": "Halmstad",
+      "mediaKind": "video",
+      "availableMask": "100",
+      "supportedMasks": [
+        "100"
+      ],
+      "duration": 10,
+      "windowSeconds": 1,
+      "hopSeconds": 1,
+      "sourceOffsetSeconds": 0,
+      "video": "assets/external/halmstad-drone/camera.mp4",
+      "poster": "assets/external/halmstad-drone/poster.jpg",
+      "audio": null,
+      "rfFrames": [],
+      "waveform": [],
+      "windows": [
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s00",
+          "start": 0,
+          "end": 1,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998891353607178,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s01",
+          "start": 1,
+          "end": 2,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998663663864136,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s02",
+          "start": 2,
+          "end": 3,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998958110809326,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s03",
+          "start": 3,
+          "end": 4,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998846054077148,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s04",
+          "start": 4,
+          "end": 5,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.999884843826294,
+              "qwen": 0.9999995231628418
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s05",
+          "start": 5,
+          "end": 6,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9996874332427979,
+              "qwen": 0.9999545812606812
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s06",
+          "start": 6,
+          "end": 7,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998506307601929,
+              "qwen": 0.999987006187439
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s07",
+          "start": 7,
+          "end": 8,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998940229415894,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s08",
+          "start": 8,
+          "end": 9,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998955726623535,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_DRONE_001:s09",
+          "start": 9,
+          "end": 10,
+          "label": 1,
+          "scores": {
+            "100": {
+              "fusion": 0.9998761415481567,
+              "qwen": 1.0
+            }
+          },
+          "rfIndices": []
+        }
+      ],
+      "cue": {
+        "time": 4,
+        "mask": "100",
+        "caption": "Both cached models detect drone presence in this camera-only window. Halmstad video has no paired RF or audio."
+      },
+      "source": {
+        "recording": "V_DRONE_001",
+        "labelBasis": "Released filename class, DRONE=1, BIRD=0.",
+        "temporalBasis": "First 300 frames of the original 301-frame 30 fps video, source offset zero. Ten nonoverlapping 1 s released windows. Eight model frames per window at offsets 0,4,8,12,17,21,25,29. No RF or paired audio.",
+        "selection": "Purposefully selected illustration; not a performance estimate."
+      }
+    },
+    {
+      "id": "halmstad-background",
+      "title": "Halmstad bird video",
+      "description": "A 10 s excerpt of a released bird recording. At 5-6 s, Qwen detector rejects the bird while Fusion classifier raises a false alarm.",
+      "label": 0,
+      "dataset": "Halmstad",
+      "mediaKind": "video",
+      "availableMask": "100",
+      "supportedMasks": [
+        "100"
+      ],
+      "duration": 10,
+      "windowSeconds": 1,
+      "hopSeconds": 1,
+      "sourceOffsetSeconds": 0,
+      "video": "assets/external/halmstad-background/camera.mp4",
+      "poster": "assets/external/halmstad-background/poster.jpg",
+      "audio": null,
+      "rfFrames": [],
+      "waveform": [],
+      "windows": [
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s00",
+          "start": 0,
+          "end": 1,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.987762451171875,
+              "qwen": 0.9241418242454529
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s01",
+          "start": 1,
+          "end": 2,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9996700286865234,
+              "qwen": 0.9992903470993042
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s02",
+          "start": 2,
+          "end": 3,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9996203184127808,
+              "qwen": 0.851952850818634
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s03",
+          "start": 3,
+          "end": 4,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9995778203010559,
+              "qwen": 0.9241418242454529
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s04",
+          "start": 4,
+          "end": 5,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9989492297172546,
+              "qwen": 0.7772998809814453
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s05",
+          "start": 5,
+          "end": 6,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9618266820907593,
+              "qwen": 0.006692850962281227
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s06",
+          "start": 6,
+          "end": 7,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9990196228027344,
+              "qwen": 0.562176525592804
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s07",
+          "start": 7,
+          "end": 8,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9995986819267273,
+              "qwen": 0.8175744414329529
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s08",
+          "start": 8,
+          "end": 9,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9996306896209717,
+              "qwen": 0.7772998809814453
+            }
+          },
+          "rfIndices": []
+        },
+        {
+          "sampleId": "halmstad-video:V_BIRD_022:s09",
+          "start": 9,
+          "end": 10,
+          "label": 0,
+          "scores": {
+            "100": {
+              "fusion": 0.9992833733558655,
+              "qwen": 0.9947799444198608
+            }
+          },
+          "rfIndices": []
+        }
+      ],
+      "cue": {
+        "time": 6,
+        "mask": "100",
+        "caption": "The released class is bird. In the 5-6 s window, Fusion classifier scores 96.18% and Qwen detector scores 0.67%."
+      },
+      "source": {
+        "recording": "V_BIRD_022",
+        "labelBasis": "Released filename class, DRONE=1, BIRD=0.",
+        "temporalBasis": "First 300 frames of the original 323-frame 30 fps video, source offset zero. Ten nonoverlapping 1 s released windows. Eight model frames per window at offsets 0,4,8,12,17,21,25,29. No RF or paired audio.",
+        "selection": "Purposefully selected illustration; not a performance estimate."
+      }
+    }
+  ]
+}

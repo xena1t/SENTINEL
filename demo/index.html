@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="SENTINEL. Explore real multimodal drone recordings and saved Version 2 model outputs.">
+  <title>SENTINEL · Evidence replay</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%230b191d' stroke='%23b9f257' stroke-width='3' d='M20 3 36 12v16l-16 9L4 28V12Z'/%3E%3Ccircle fill='%23b9f257' cx='20' cy='20' r='5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="masthead page-grid">
+    <div class="masthead-content">
+      <a class="brand" href="./" aria-label="SENTINEL replay home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 36 12v16l-16 9L4 28V12Z"/><path d="m12 16 8-5 8 5v9l-8 5-8-5Z"/><path d="M20 3v8m16 1-8 4M4 28l8-4"/><circle cx="20" cy="20" r="3"/></svg><span>SENTINEL<span class="brand-sub">MULTIMODAL DRONE DETECTION</span></span></a>
+      <div class="header-actions"><span class="replay-badge"><span class="status-dot"></span> CACHED REPLAY <span class="badge-version">/ V2</span></span><button id="fullscreen" class="icon-button" title="Fullscreen (F)" aria-label="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+    </div>
+  </header>
+  <main class="page-grid">
+    <section class="intro" aria-labelledby="page-title"><div><p class="eyebrow">REAL SOURCES. SIX SAVED EXAMPLES.</p><h1 id="page-title">Different evidence. <em>One question.</em></h1></div><p class="intro-copy">Is there a drone? Compare two models on real evidence.<br>Choose one drone and one background example from each dataset.</p></section>
+    <nav class="example-pairs" aria-label="Dataset examples, one drone and one background per dataset" id="example-pairs"><span class="eyebrow">LOADING RECORDED EVIDENCE</span></nav>
+    <div id="load-status" class="load-status" role="status">Opening the local Version 2 replay pack…</div>
+    <section id="instrument" class="instrument" aria-label="Recorded evidence instrument" hidden>
+      <div class="evidence-column">
+        <div class="recording-heading"><div class="recording-label"><span class="eyebrow" id="dataset-label">EVIDENCE EXAMPLE</span><h2 id="clip-title">Recorded evidence</h2></div><label class="clip-picker"><span class="sr-only">Choose evidence example</span><select id="clip-select"></select><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></label></div>
+        <p id="source-support" class="source-support"></p>
+        <div class="evidence-stage"><div class="camera-panel sensor-view" data-sensor-view="camera">
+          <video id="camera" preload="auto" muted playsinline aria-label="Original source camera recording"></video>
+          <img id="camera-still" alt="Original RGB still from the selected RFVS observation" hidden>
+          <div class="camera-top"><span class="view-label"><span class="status-dot"></span> RGB CAMERA <span class="sensor-evidence-label" data-sensor-label="camera">INCLUDED</span></span><span id="camera-media-label" class="camera-recorded">RECORDED TEST EVIDENCE</span></div>
+          <div class="camera-bottom"><span class="crosshair" aria-hidden="true">⌜<br>⌞</span><div><span class="eyebrow">DATASET LABEL</span><strong id="camera-truth">DRONE PRESENT</strong></div><span class="camera-clock" id="camera-clock">01.00 <small>/ 10.00 s</small></span></div>
+          <div id="video-error" class="media-error" hidden>Camera media unavailable. The saved sensor scores remain inspectable.</div>
+        </div>
+        <div class="signal-strip">
+          <section class="signal-pane sensor-view" data-sensor-view="rf" aria-label="Recorded radio frequency spectrum"><div class="pane-label"><span>02 <strong>RADIO FREQUENCY</strong></span><span class="sensor-evidence-label" data-sensor-label="rf">INCLUDED</span></div><div class="rf-image-wrap"><img id="rf-image" alt="Actual recorded RF spectrum for the selected moment"><div id="rf-empty" class="signal-empty" hidden>RF was not recorded for this example</div><div id="rf-error" class="signal-error" hidden>Recorded RF image unavailable</div></div><span id="rf-time" class="signal-meta">SOURCE FRAME · 01.00 s</span></section>
+          <section class="signal-pane sensor-view" data-sensor-view="audio" aria-label="Recorded audio waveform"><div class="pane-label"><span>03 <strong>AUDIO</strong></span><span class="sensor-evidence-label" data-sensor-label="audio">INCLUDED</span></div><svg id="waveform" class="waveform" viewBox="0 0 600 70" preserveAspectRatio="none" role="img" aria-label="Actual audio peaks across this recording, with the selected cached interval highlighted"><rect id="wave-window" y="0" height="70"/><path id="wave-path"/><line id="wave-cursor" y1="0" y2="70"/></svg><div id="audio-empty" class="audio-empty" hidden>Audio was not recorded for this example</div><div class="audio-meta"><span id="audio-meta" class="signal-meta">RECORDED WAVEFORM · 10 s</span><button id="listen" class="listen-button" aria-pressed="false">◖ Listen <span>OFF</span></button></div></section>
+        </div>
+        </div>
+        <div class="sensor-controls"><div class="sensor-controls-label"><span class="eyebrow">MODEL INPUTS</span><small>Toggle to hold & compare</small></div><div id="sensor-switches" class="sensor-switches"></div><span id="mask-code" class="mask-code" title="Mask bit order is Camera, RF, Audio">MASK <b>111</b></span></div>
+        <div class="transport"><button id="play" class="play-button" aria-label="Play recording">▶ <span>Play recording</span></button><button id="hold" class="text-button">Ⅱ Hold window</button><div class="window-readout"><span id="transport-state">HELD WINDOW</span><strong id="window-time">00.00–01.00 s</strong></div><div class="step-buttons"><button id="previous" class="icon-button" aria-label="Previous cached window" title="Previous window (←)">←</button><button id="next" class="icon-button" aria-label="Next cached window" title="Next window (→)">→</button></div></div>
+        <section class="timeline" aria-label="Cached score timeline"><div class="timeline-heading"><span class="eyebrow" id="chart-heading">DRONE SCORE OVER TIME</span><div class="chart-legend"><span class="fusion-key">Fusion classifier</span><span class="qwen-key">Qwen detector</span></div></div><div class="chart-wrap"><svg id="score-chart" viewBox="0 0 800 96" preserveAspectRatio="none" role="img" aria-label="Real cached drone scores for the selected sensor mask"><line class="chart-rule" x1="0" y1="12" x2="800" y2="12"/><line class="chart-threshold" x1="0" y1="48" x2="800" y2="48"/><line class="chart-rule" x1="0" y1="84" x2="800" y2="84"/><rect id="chart-window" y="0" height="96"/><path id="fusion-trace" class="fusion-trace"/><path id="qwen-trace" class="qwen-trace"/><line id="chart-cursor" y1="0" y2="96"/><circle id="fusion-point" class="fusion-point" r="4"/><circle id="qwen-point" class="qwen-point" r="4"/></svg><span class="threshold-label">0.5</span></div><label class="seek-label"><span class="sr-only">Select cached window</span><input id="seek" type="range" min="0" max="36" step="1" value="0"></label><div class="timeline-ticks"><span id="timeline-start">0 s</span><span id="timeline-note">1 s WINDOW / 0.25 s HOP</span><span id="timeline-duration">10 s</span></div></section>
+      </div>
+      <aside class="analysis-column" aria-label="Model paths and cached predictions">
+        <section class="pipeline-panel"><div class="section-heading"><span class="eyebrow">ONE OBSERVATION. TWO MODEL PATHS.</span><span class="small-tag">ILLUSTRATED</span></div><svg class="pipeline" viewBox="0 0 300 160" role="img" aria-label="Camera, RF and audio encoders feed masked query fusion. Fusion feeds a learned classifier and a connector to frozen Qwen. Camera also reaches Qwen by its native RGB route."><g class="pipeline-routes" fill="none"><path data-route="camera" d="M68 28H82V67H101"/><path data-route="rf" d="M68 67H101"/><path data-route="audio" d="M68 106H82V67"/><path data-route="any" d="M190 67H202V29H211"/><path data-route="any" d="M190 67H202V84H211"/><path data-route="any" d="M254 98V123"/><path data-route="camera" class="native-route" d="M68 28H92V139H211"/></g><g class="pipeline-node" data-node="camera"><rect x="1" y="12" width="67" height="32" rx="3"/><text x="34.5" y="26">Camera</text><text x="34.5" y="38" class="encoder-text">encoder</text></g><g class="pipeline-node" data-node="rf"><rect x="1" y="51" width="67" height="32" rx="3"/><text x="34.5" y="65">RF</text><text x="34.5" y="77" class="encoder-text">encoder</text></g><g class="pipeline-node" data-node="audio"><rect x="1" y="90" width="67" height="32" rx="3"/><text x="34.5" y="104">Audio</text><text x="34.5" y="116" class="encoder-text">encoder</text></g><g class="pipeline-node fusion-node" data-node="any"><rect x="101" y="49" width="89" height="36" rx="3"/><text x="145.5" y="64">Masked query</text><text x="145.5" y="78">fusion</text></g><g class="pipeline-node" data-node="any"><rect x="211" y="13" width="88" height="32" rx="3"/><text x="255" y="33">Classifier</text></g><g class="pipeline-node" data-node="any"><rect x="211" y="68" width="88" height="32" rx="3"/><text x="255" y="88">Connector</text></g><g class="pipeline-node qwen-node" data-node="any"><rect x="211" y="123" width="88" height="32" rx="3"/><text x="255" y="143">Frozen Qwen</text></g><text class="route-label" x="106" y="131">Native RGB →</text></svg><p class="pipeline-caption">Highlighted routes show selected inputs.<br>Routing illustration, not measured attention.</p></section>
+        <div class="prediction-heading"><h2>What sees the drone?</h2><span id="truth-label" class="truth-label">Actual · Drone</span></div>
+        <section id="fusion-card" class="prediction-card fusion-card" aria-labelledby="fusion-label"><div class="model-heading"><h3 id="fusion-label">Fusion classifier</h3><span class="model-tag">CLASSIFIER</span></div><div class="score-row"><strong id="fusion-score">—</strong><span id="fusion-verdict" class="verdict">Cached output</span></div><div class="score-meter"><div id="fusion-bar"></div><i></i></div><div class="score-foot"><span>DRONE SCORE</span><span>THRESHOLD 0.500</span></div><p id="fusion-delta" class="delta">Same window, all inputs</p></section>
+        <section id="qwen-card" class="prediction-card qwen-card" aria-labelledby="qwen-label"><div class="model-heading"><h3 id="qwen-label">Qwen detector</h3><span class="model-tag">SENSOR + RGB</span></div><div class="score-row"><strong id="qwen-score">—</strong><span id="qwen-verdict" class="verdict">Cached output</span></div><div class="score-meter"><div id="qwen-bar"></div><i></i></div><div class="score-foot"><span>DRONE SCORE</span><span>THRESHOLD 0.500</span></div><p id="qwen-delta" class="delta">Same window, all inputs</p></section>
+        <div id="story-note" class="story-note"><span class="eyebrow">THE SELECTED OBSERVATION</span><p>What changes when the same moment loses a sensor?</p></div>
+        <p class="score-note">Saved V2 outputs. Scores are not calibrated confidence. These six balanced illustrations are not an accuracy estimate. No inference runs here.</p>
+      </aside>
+    </section>
+    <section id="details-section" class="details-section" hidden><details><summary><span id="mask-summary">Inspect released sensor combinations</span> <span>EXACT WINDOW CACHE ↗</span></summary><div class="mask-table-wrap"><table><caption id="table-caption">Cached scores for this exact observation</caption><thead><tr><th scope="col">Inputs · Camera / RF / Audio</th><th scope="col">Fusion classifier</th><th scope="col">Qwen detector</th></tr></thead><tbody id="mask-table"></tbody></table></div></details><details><summary>Source & model provenance <span>SOURCE NOTES ↗</span></summary><div id="provenance" class="provenance"></div></details>
+      <details class="architecture-details">
+        <summary>Follow the evidence through the model <span>UNDER THE DECISION ↗</span></summary>
+        <div class="architecture-steps">
+          <article>
+            <span class="eyebrow">01 / ENCODE</span>
+            <h3>Three sources become tokens.</h3>
+            <p>Qwen vision encodes the camera frames. The trained RF CNN reads spectrograms. CLAP encodes audio.</p>
+            <p class="stage-fact">TRIDENT example window · 8 camera frames / 4 RF frames / 1 audio crop</p>
+          </article>
+          <article>
+            <span class="eyebrow">02 / FUSE</span>
+            <h3>Queries read the available evidence.</h3>
+            <p>Each stream is projected to width 512. Sixteen learned queries combine the tokens through two attention blocks. Offline streams are zeroed and masked out.</p>
+            <p class="stage-fact">Sensor switches remove whole streams.</p>
+          </article>
+          <article>
+            <span class="eyebrow">03 / CLASSIFY</span>
+            <h3>Fusion can decide directly.</h3>
+            <p>The Fusion classifier pools the fused tokens and scores drone presence. A score of at least 0.5 gives a drone decision.</p>
+            <p class="stage-fact">The first model card follows this branch.</p>
+          </article>
+          <article>
+            <span class="eyebrow">04 / CONNECT</span>
+            <h3>Qwen receives sensor evidence.</h3>
+            <p>The connector maps the 16 fused tokens into Qwen's 4,096-dimensional embeddings. Native camera frames also enter Qwen when camera evidence is enabled.</p>
+            <p class="stage-fact">Frozen Qwen detector scores the fixed answers yes and no.</p>
+          </article>
+        </div>
+        <p class="architecture-note">This is an architecture explanation. The browser selects real saved outputs. It does not run these models or display measured attention.</p>
+      </details>
+    </section>
+    <footer class="footer"><span>SENTINEL <span class="footer-divider">/</span> IE4422 · MULTIMODAL INTELLIGENCE</span><span>REAL EVIDENCE. SAVED PREDICTIONS. <span class="footer-divider">/</span> <kbd>Space</kbd> play <kbd>← →</kbd> step <kbd>1 2 3</kbd> inputs <kbd>F</kbd> fullscreen</span></footer>
+  </main>
+  <audio id="monitor" preload="auto"></audio>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>

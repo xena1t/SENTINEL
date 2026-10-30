@@ -1,0 +1,300 @@
+{
+  "repository": "xena1t/SENTINEL",
+  "commit": "7fc465480f4f5b1ad348ffef93c744712e06b098",
+  "publishedFiles": [
+    {
+      "path": "research/external/rfvs/predictions.json",
+      "local": "data/external/published/research__external__rfvs__predictions.json",
+      "gitBlobSha1": "09d9939e923d53a635625c7068b17c45e3cb8f88",
+      "sha256": "d05b55603b4f2634793d084877b61fdf3b555ff0a2b98fae197f4e2d53974ea6",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/research/external/rfvs/predictions.json"
+    },
+    {
+      "path": "research/external/halmstad-video/predictions.json",
+      "local": "data/external/published/research__external__halmstad-video__predictions.json",
+      "gitBlobSha1": "4e3564c3fc5822a3d14bbfdb55f85b87e4dc9f7d",
+      "sha256": "db06e86f14b8431c8295a99d07495005f291fb6eaace07d3f24b1011367cb0a0",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/research/external/halmstad-video/predictions.json"
+    },
+    {
+      "path": "src/drone_presence/adapters/rfvs.py",
+      "local": "data/external/published/src__drone_presence__adapters__rfvs.py",
+      "gitBlobSha1": "b4db1cdfcb0c6205360e1b1a74c91d42b1790d2e",
+      "sha256": "3210231d3cec7d827b918b9b4bc3369e80ede28c933735498ee4d954fc13dfae",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/src/drone_presence/adapters/rfvs.py"
+    },
+    {
+      "path": "src/drone_presence/adapters/halmstad.py",
+      "local": "data/external/published/src__drone_presence__adapters__halmstad.py",
+      "gitBlobSha1": "818bce21d4d1df27efbcbc23c660e106e11c9a59",
+      "sha256": "ed8b97d71dd37b8370ac32f59c99e4cf46c3ec4a99b45dc14399560b0f2b31e5",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/src/drone_presence/adapters/halmstad.py"
+    },
+    {
+      "path": "scripts/setup/download_external.py",
+      "local": "data/external/published/scripts__setup__download_external.py",
+      "gitBlobSha1": "f1a48299322eb8d218096b9c868b350f060b9887",
+      "sha256": "9a7ca3f74350d8097d5b8f246abdf44136b7143a88c5b5bd88a53c004ba9ef98",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/scripts/setup/download_external.py"
+    },
+    {
+      "path": "data/audit/rfvs/archive-manifest.json",
+      "local": "data/external/published/data__audit__rfvs__archive-manifest.json",
+      "gitBlobSha1": "2445b61bc47f3300984f1f4141f200a7afb884c9",
+      "sha256": "b52cdf8b79c4a187451f1325f5ab67e822b28eebde17f1eb6fbc302192040113",
+      "url": "https://github.com/xena1t/SENTINEL/blob/7fc465480f4f5b1ad348ffef93c744712e06b098/data/audit/rfvs/archive-manifest.json"
+    }
+  ],
+  "sources": [
+    {
+      "clipId": "rfvs-drone",
+      "local": "data/external/source/rfvs/images/test/AIR2s_58296527.jpg",
+      "archiveMember": "images/test/AIR2s_58296527.jpg",
+      "sha256": "cbc8828ec7bb8fce5a08379aa0f553c70a5a1b9d4ae1b7f21df14f37b68c2bd8",
+      "bytes": 455818,
+      "archive": "https://drive.usercontent.google.com/download?id=1ANz2rfjkWlMiWKkTb31dbqQhCApGPFtK&export=download&confirm=t",
+      "archiveBytes": 5343324308,
+      "archiveManifest": {
+        "name": "images/test/AIR2s_58296527.jpg",
+        "size": 455818,
+        "compressed": 449707,
+        "offset": 54897225,
+        "method": 8,
+        "crc": 4164398205
+      },
+      "httpRange": "bytes=54897225-55351087"
+    },
+    {
+      "clipId": "rfvs-drone",
+      "local": "data/external/source/rfvs/labels/test/AIR2s_58296527.txt",
+      "archiveMember": "labels/test/AIR2s_58296527.txt",
+      "sha256": "4ced5f35d337f4aaa6d02336a4523874f24126b503f60259c4013b8490a279d2",
+      "bytes": 38,
+      "archive": "https://drive.usercontent.google.com/download?id=1ANz2rfjkWlMiWKkTb31dbqQhCApGPFtK&export=download&confirm=t",
+      "archiveBytes": 5343324308,
+      "archiveManifest": {
+        "name": "labels/test/AIR2s_58296527.txt",
+        "size": 38,
+        "compressed": 32,
+        "offset": 352629209,
+        "method": 8,
+        "crc": 2059466279
+      },
+      "httpRange": "bytes=352629209-352633396"
+    },
+    {
+      "clipId": "rfvs-drone",
+      "local": "data/external/source/rfvs/RF_raw/test/AIR2s_58296527",
+      "archiveMember": "RF_raw/test/AIR2s_58296527",
+      "sha256": "0c330bd2a98ad75226126c1604ab33d54fa210f1c106ff2d5e0135b6613254d2",
+      "bytes": 18432248,
+      "archive": "https://drive.usercontent.google.com/download?id=1ANz2rfjkWlMiWKkTb31dbqQhCApGPFtK&export=download&confirm=t",
+      "archiveBytes": 5343324308,
+      "archiveManifest": {
+        "name": "RF_raw/test/AIR2s_58296527",
+        "size": 18432248,
+        "compressed": 11402260,
+        "offset": 1084789119,
+        "method": 8,
+        "crc": 3377966463
+      },
+      "httpRange": "bytes=1084789119-1096195530"
+    },
+    {
+      "clipId": "rfvs-background",
+      "local": "data/external/source/rfvs/images/test/house_background_124157_73.jpg",
+      "archiveMember": "images/test/house_background_124157_73.jpg",
+      "sha256": "13da74548ea7ee63a8cbcda5c81f52098a954c83708666a0b237edf120abfe34",
+      "bytes": 535856,
+      "archive": "https://drive.usercontent.google.com/download?id=1ANz2rfjkWlMiWKkTb31dbqQhCApGPFtK&export=download&confirm=t",
+      "archiveBytes": 5343324308,
+      "archiveManifest": {
+        "name": "images/test/house_background_124157_73.jpg",
+        "size": 535856,
+        "compressed": 521901,
+        "offset": 237087762,
+        "method": 8,
+        "crc": 43162237
+      },
+      "httpRange": "bytes=237087762-237613830"
+    },
+    {
+      "clipId": "rfvs-background",
+      "local": "data/external/source/rfvs/labels/test/house_background_124157_73.txt",
+      "archiveMember": "labels/test/house_background_124157_73.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "archive": "https://drive.usercontent.google.com/download?id=1ANz2rfjkWlMiWKkTb31dbqQhCApGPFtK&export=download&confirm=t",
+      "archiveBytes": 5343324308,
+      "archiveManifest": {
+        "name": "labels/test/house_background_124157_73.txt",
+        "size": 0,
+        "compressed": 0,
+        "offset": 352651225,
+        "method": 0,
+        "crc": 0
+      },
+      "httpRange": "bytes=352651225-352655392"
+    },
+    {
+      "clipId": "rfvs-background",
+      "local": "data/external/source/rfvs/RF_raw/test/house_background_124157_73",
+      "archiveMember": "RF_raw/test/house_background_124157_73",
+      "sha256": "935048d1a543d6666b37c1fced1e40435c44debf14fbb4524c29e8a7e29cdf69",
+      "bytes": 18432248,
+      "archive": "https://drive.usercontent.google.com/download?id=1ANz2rfjkWlMiWKkTb31dbqQhCApGPFtK&export=download&confirm=t",
+      "archiveBytes": 5343324308,
+      "archiveManifest": {
+        "name": "RF_raw/test/house_background_124157_73",
+        "size": 18432248,
+        "compressed": 8238530,
+        "offset": 3304241978,
+        "method": 8,
+        "crc": 1547297461
+      },
+      "httpRange": "bytes=3304241978-3312484671"
+    },
+    {
+      "clipId": "halmstad-drone",
+      "local": "data/external/source/halmstad/V_DRONE_001.mp4",
+      "sha256": "9db5a800377c01db8369dfba808d400ca52cd393e0a32850e1d20a4861eaecbe",
+      "gitBlobSha1": "08a75180c1daf4b383a8234f97a1d8bdf4ec9012",
+      "bytes": 144518,
+      "videoProbe": {
+        "avg_frame_rate": "30/1",
+        "duration": "10.033300",
+        "nb_frames": "301"
+      },
+      "excerptStartFrame": 0,
+      "excerptEndFrameExclusive": 300,
+      "url": "https://github.com/DroneDetectionThesis/Drone-detection-dataset/blob/e7a6eaf9760fa3f9ecc37d09cd11a8cd20be90dd/Data/Video_V/V_DRONE_001.mp4"
+    },
+    {
+      "clipId": "halmstad-background",
+      "local": "data/external/source/halmstad/V_BIRD_022.mp4",
+      "sha256": "c1b367f025032737fb41c89ab9dcaa178cb202661bd3c4fe441df26ef328c69a",
+      "gitBlobSha1": "f9bbadc6f83f3e8506ed017ff245d13013d52162",
+      "bytes": 1450874,
+      "videoProbe": {
+        "avg_frame_rate": "30/1",
+        "duration": "10.766633",
+        "nb_frames": "323"
+      },
+      "excerptStartFrame": 0,
+      "excerptEndFrameExclusive": 300,
+      "url": "https://github.com/DroneDetectionThesis/Drone-detection-dataset/blob/e7a6eaf9760fa3f9ecc37d09cd11a8cd20be90dd/Data/Video_V/V_BIRD_022.mp4"
+    }
+  ],
+  "modelProvenance": {
+    "rfvs": {
+      "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "clap_revision": "c47d441165daa21986ead0850660917636a81775",
+      "qwen_load": "4bit",
+      "checkpoints": {
+        "rf-cnn-best": {
+          "sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+          "epoch": 25
+        },
+        "fusion-best": {
+          "sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+          "epoch": 4
+        },
+        "qwen-dropout-connector-best": {
+          "sha256": "c3a6a2ca6e447c17ee370bb3bb1d6c4d6869753d5cc8d9e4e90450125fe60ea0",
+          "epoch": 15
+        }
+      }
+    },
+    "halmstad-video": {
+      "qwen_revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "clap_revision": "c47d441165daa21986ead0850660917636a81775",
+      "qwen_load": "4bit",
+      "checkpoints": {
+        "rf-cnn-best": {
+          "sha256": "74503b7c625a261443104eeb13933bb2347ffca82efd2635d1030fdb03e75f28",
+          "epoch": 25
+        },
+        "fusion-best": {
+          "sha256": "643b797bccb356e11c170bb449ff027d270e27e3588897daab0b763ca64cecf6",
+          "epoch": 4
+        },
+        "qwen-dropout-connector-best": {
+          "sha256": "c3a6a2ca6e447c17ee370bb3bb1d6c4d6869753d5cc8d9e4e90450125fe60ea0",
+          "epoch": 15
+        }
+      }
+    }
+  },
+  "media": [
+    {
+      "local": "assets/external/halmstad-background/camera.mp4",
+      "bytes": 878175,
+      "sha256": "785719a2e67262ee0122866bedc45d5b521da93b3e4f4be494e8d4addfa4bb5b"
+    },
+    {
+      "local": "assets/external/halmstad-background/poster.jpg",
+      "bytes": 33334,
+      "sha256": "d57c4519c4620025d5956c3969a463352acc1c65d2b1ed465e1718dc74d2da4a"
+    },
+    {
+      "local": "assets/external/halmstad-drone/camera.mp4",
+      "bytes": 241721,
+      "sha256": "9d1f57f2ba557f3fb4473673dc7f2bf329f7b6f4664c5e02ce05571611b802ff"
+    },
+    {
+      "local": "assets/external/halmstad-drone/poster.jpg",
+      "bytes": 17689,
+      "sha256": "63a4f4554258ff035e57856e351af8c22cc355228854153532fec705bb9d6e16"
+    },
+    {
+      "local": "assets/external/rfvs-background/poster.jpg",
+      "bytes": 535856,
+      "sha256": "13da74548ea7ee63a8cbcda5c81f52098a954c83708666a0b237edf120abfe34"
+    },
+    {
+      "local": "assets/external/rfvs-background/rf-01.png",
+      "bytes": 577443,
+      "sha256": "8a9e388063f55d9f74dc13fad4c7efd9b9bd31f511dfc1a962d560668f3b57d1"
+    },
+    {
+      "local": "assets/external/rfvs-background/rf-02.png",
+      "bytes": 626827,
+      "sha256": "a630ecad48ffc6b7a08d7567da7d2761108ac9d39a5199f317d704a12915a22b"
+    },
+    {
+      "local": "assets/external/rfvs-background/rf-03.png",
+      "bytes": 623113,
+      "sha256": "357838334167a2d153847c81d3aa3e81706551db709cef0022497b0ddc759316"
+    },
+    {
+      "local": "assets/external/rfvs-background/rf-04.png",
+      "bytes": 622847,
+      "sha256": "95ef7550aa5dbfcb9832dd43aeb24bb176cebef37638e363e16e1bdbea43b6d8"
+    },
+    {
+      "local": "assets/external/rfvs-drone/poster.jpg",
+      "bytes": 455818,
+      "sha256": "cbc8828ec7bb8fce5a08379aa0f553c70a5a1b9d4ae1b7f21df14f37b68c2bd8"
+    },
+    {
+      "local": "assets/external/rfvs-drone/rf-01.png",
+      "bytes": 547534,
+      "sha256": "a192f89141e84ad9d736959d4fd5e66cdce0713af49cda3a81381354433bab3b"
+    },
+    {
+      "local": "assets/external/rfvs-drone/rf-02.png",
+      "bytes": 562846,
+      "sha256": "415f2ec3a4095fc3077e780ba511569eaf90318d746eab2a9f17b3a7d2c9db85"
+    },
+    {
+      "local": "assets/external/rfvs-drone/rf-03.png",
+      "bytes": 562448,
+      "sha256": "e2a8cf6a33d117883af865f89188bc163dd8b24f0d73b2f4b99f60ab0da9c760"
+    },
+    {
+      "local": "assets/external/rfvs-drone/rf-04.png",
+      "bytes": 546727,
+      "sha256": "d20d77dd89e4404a59f482925151912570347abdc70ef5ca6bebbe6914d779e3"
+    }
+  ]
+}
