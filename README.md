@@ -1,6 +1,6 @@
 # SENTINEL
 
-SENTINEL detects drone presence from camera frames, passive RF spectrograms and audio. It compares a learned fusion classifier with a frozen Qwen3-VL-8B-Instruct model under missing sensors and on external datasets.
+SENTINEL (**SEN**sor-dropout **T**rimodal **IN**ference with an **E**mbedding **L**anguage model) detects drone presence from camera frames, passive RF spectrograms and audio. It compares a learned fusion classifier with a frozen Qwen3-VL-8B-Instruct model under missing sensors and on external datasets.
 
 Use this repository to run the released detector, train the models, or recompute benchmark metrics from the included predictions. Version 1 operates on whole 10-second clips. Version 2 uses 1-second windows at a 0.25-second hop.
 
